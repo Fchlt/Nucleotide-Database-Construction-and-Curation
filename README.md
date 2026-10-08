@@ -25,8 +25,9 @@ strict (logical): Whether an additional ']' character s added at the end of the 
 Use.Alternative.Queries (Logical): whether alternative gene names should be used to query the genomic files
 
 Queries (file): text file containing the alternative gene names to be used to query the genomic files. (use one name per line)
-**
-_2. Full ORF check_**
+
+
+**_2. Full ORF check_**
 
 The next step is to make sure only full length genes (Open Reading Frames; ORF) are retained. To do so, the ORFchecker.R will look at each sequence provided in the 'sequences.fasta' file and 1) check for the presence of a START codon at the beginning of the sequence (the list of accepted STRAT codons can be manually changed by setting the START.list argument) 2) check the presence of a STOP codon at the end of the sequence (by translating to an amino acid sequence and checking for a STOP codon * at the end of the sequence) and 3) check for the absence of a STOP codon within the sequence. Additionally, the sequences can be filtered to retain only those superior to the Length_threshold value (use Length_threshold=0 if no length filtering is necessary).
 
