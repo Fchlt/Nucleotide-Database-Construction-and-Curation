@@ -1,15 +1,11 @@
 ######## 1- GetGenefromGenome ########
 
 library(seqinr)
-# Path to genome directories
 PATH='ncbi_dataset/ncbi_dataset/data/'
-#load the genome info
 genome.info=read.delim(paste(PATH,'data_summary.tsv',sep=''))
-# Get a list of genome accessions (directories to search)
 genomes=list.files(PATH)
 genomes=genomes[-grep('json',genomes)]
 genomes=genomes[-grep('tsv',genomes)]
-# Load a list of search terms
 Target='amoA'
 Use.Alternative.Queries=T
 Queries=read.delim('amoA_search_terms.txt',header = F)
@@ -288,7 +284,6 @@ for(i in 1:nrow(species)){
       Species=SPECIES,
       NCBI.ID=ID)
  
-  #If nothing has been found, try changing the names of the unnassigned species
   if(DO=='Unknown'&identical(grep('sp.',SPECIES,fixed = T),integer(0))==F){
     
     new.spe.name=paste('uncultured',gsub(' sp.','',SPECIES,fixed=T),sep=' ')
